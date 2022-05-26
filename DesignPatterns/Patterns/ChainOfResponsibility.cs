@@ -1,4 +1,5 @@
 using System;
+using DesignPatterns.Patterns;
 
 namespace DesignPatterns.Patterns
 {
@@ -46,5 +47,56 @@ namespace DesignPatterns.Patterns
                 _nextHandler.Service(car);
             }
         }
+
+        public void SetNextServiceHandler(ServiceHandler handler)
+        {
+            _nextHandler = handler;
+        }
+        
+        // сущности которые выполняют обслуживание
+        
+    }
+    
+    class Detailer : ServiceHandler
+    {
+        public Detailer() : base(ServiceRequirements.Dirty)
+        {
+        }
+    }
+    
+    class Mechanic : ServiceHandler
+    {
+        public Mechanic() : base(ServiceRequirements.EngineTune)
+        {
+        }
+    }
+    
+    class WheelMaster : ServiceHandler
+    {
+        public WheelMaster() : base(ServiceRequirements.WheelAlignment)
+        {
+        }
+    }
+    
+    class QualityController : ServiceHandler
+    {
+        public QualityController() : base(ServiceRequirements.TestDrive)
+        {
+        }
+    }
+}
+
+public class ChainOfResponsobility
+{
+    static void Main()
+    {
+        var mechanic = new Mechanic();
+        var detailer = new Detailer();
+        var wheelMaster = new WheelMaster();
+        var qualityController = new QualityController();
+        
+        qualityController.SetNextServiceHandler(detailer);
+        wheelMaster.SetNextServiceHandler(qualityController);
+        mechanic.SetNextServiceHandler(wheelMaster);
     }
 }

@@ -90,7 +90,7 @@ namespace DesignPatterns.Patterns
     
     public class DecoratorTest
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             var messages = new List<IMessage>
             {
@@ -100,7 +100,7 @@ namespace DesignPatterns.Patterns
             };
             
             messages.ForEach(message => message.PrintMessage());
-        }
+        }*/
     }
 }
 
