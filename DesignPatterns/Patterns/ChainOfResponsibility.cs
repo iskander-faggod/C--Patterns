@@ -88,7 +88,7 @@ namespace DesignPatterns.Patterns
 
 public class ChainOfResponsobility
 {
-    static void Main()
+    /*static void Main()
     {
         var mechanic = new Mechanic();
         var detailer = new Detailer();
@@ -98,5 +98,5 @@ public class ChainOfResponsobility
         qualityController.SetNextServiceHandler(detailer);
         wheelMaster.SetNextServiceHandler(qualityController);
         mechanic.SetNextServiceHandler(wheelMaster);
-    }
+    }*/
 }
